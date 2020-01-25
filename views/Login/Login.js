@@ -10,6 +10,7 @@ import {
     TextInput, 
     TouchableOpacity, 
     View, 
+    AsyncStorage,// เพิ่มเติมส่วน
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
@@ -32,7 +33,17 @@ export class Login extends React.Component {
     }
 
     componentDidMount() {
-       
+        // เพิ่มเติมส่วน AsyncStorage
+        AsyncStorage.getItem('user_data').then((user) => { return JSON.parse(user) }).then((user_data) => {
+            if (user_data != null) {
+                // this.setState({ 
+                //     username: user_data.user_username, 
+                //     password: user_data.user_password 
+                // });
+
+                this.props.navigation.navigate('Home')
+            }
+        });
     }
 
     _getLogin(){
@@ -63,7 +74,12 @@ export class Login extends React.Component {
                         this.setState({
                             loading: false,
                         },() => {
-                            Alert.alert("Function","_getLogin");
+                            //Alert.alert("Function","_getLogin");
+                           // this.props.navigation.navigate('Home')
+                           // ถ้า Login ผ่าน
+                           AsyncStorage.setItem('user_data',JSON.stringify(response.data[0])).then(() => {
+                            this.props.navigation.navigate('Home')
+                        });
                         });
                     }
                 });

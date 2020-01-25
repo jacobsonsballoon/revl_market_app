@@ -57,11 +57,14 @@ export class Profile extends React.Component {
     }
 
     _confirmLogout() {
-        Alert.alert('ออกจากระบบ', 'คุณต้องการออกจากระบบหรือไม่ ?', [{ text: 'OK', onPress: () => this._logOut() }, { text: 'cancel', }]);
+        Alert.alert('ออกจากระบบ2', 'คุณต้องการออกจากระบบหรือไม่ ?', [{ text: 'OK', onPress: () => this._logOut() }, { text: 'cancel', }]);
     }
 
-    _logOut() {
 
+    _logOut() {
+        AsyncStorage.removeItem('user_data').then(() => {
+            this.props.navigation.navigate('Login')
+        });
     }
 
     render() { 

@@ -7,6 +7,7 @@ import {
     Text, 
     TouchableOpacity,
     View,
+    AsyncStorage,   // เพิ่มเติม storage
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
@@ -61,7 +62,9 @@ export default class Profile extends React.Component {
     }
 
     _logOut() {
-
+        AsyncStorage.removeItem('user_data').then(() => {
+            this.props.navigation.navigate('Login')
+        });
     }
 
     render() { 

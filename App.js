@@ -58,7 +58,8 @@ const HomeNavigation = createStackNavigator({
 
 // อ้างหน้าเพื่อใช้งาน
 const Navigation = createSwitchNavigator({
-  Home: HomeNavigation,
+    Login: Login, //// เพิ่มเติมส่วน
+    Home: HomeNavigation,
 })
 
 
