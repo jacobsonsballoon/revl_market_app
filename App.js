@@ -21,12 +21,13 @@ const HomeNavigation = createStackNavigator({
   NewsDetailTest: { 
       screen: NewsDetail,
       navigationOptions: {
-          title: 'รายละเอียด',
+          title: 'รายละเอียด(ข่าวสาร)',
           headerTintColor: '#f3f3f3',
           headerTitleStyle: {
               fontSize: 18,
               fontFamily: 'Kanit-Regular',
-              color: '#f3f3f3'
+              color: '#f3f3f3',
+              fontWeight:'bold'
           },
           headerStyle: {
               backgroundColor: '#010001',

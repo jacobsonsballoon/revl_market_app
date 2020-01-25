@@ -106,7 +106,7 @@ export default class News extends React.Component {
                         source={require('../../images/bghead.png')} 
                         style={{ width: '100%', justifyContent: "center", alignItems: "center" }} 
                     >
-                        <Text style={{ fontFamily: 'Kanit-Regular', fontSize: 18, color: '#f3f3f3' }}>ข่าวสารและกิจกรรม</Text>
+                        <Text style={{ fontFamily: 'Kanit-Regular', fontSize: 18, color: '#f3f3f3',fontWeight:'bold' }}>ข่าวสารและกิจกรรม</Text>
                     </ImageBackground>
                 </Header>
                 <ScrollView>

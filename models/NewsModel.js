@@ -10,7 +10,9 @@ export default class NewsModel {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify()
+
+            body: JSON.stringify() // เอมาท้งหมด
+
         }).then((response) => {
             if (response.status >= 200 && response.status < 300) {
                 return response.json();
@@ -29,7 +31,7 @@ export default class NewsModel {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({
+            body: JSON.stringify({  // เลือกมาแสตง ตามที่เรา filter
                 news_code: code
             })
         }).then((response) => {
