@@ -79,7 +79,7 @@ export default class News extends React.Component {
                     display_data.push(
                         <View style={[ { flex: 1, flexDirection: 'row', padding: 12 }]}>
                             <View style={{ flex: 1, flexDirection: 'column', }} >
-                                <TouchableOpacity onPress={() => this.props.navigation.navigate('NewsDetail',{ news_code: this.state.news[i].news_code }) }>
+                                <TouchableOpacity onPress={() => this.props.navigation.navigate('NewsDetailTest',{ news_code: this.state.news[i].news_code }) }>
                                     <Image 
                                         resizeMode="cover" 
                                         source={{ uri: GOBALS.URL + this.state.news[i].news_image_name }} 
