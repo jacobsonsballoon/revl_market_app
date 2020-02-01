@@ -4,7 +4,7 @@ export default class UserModel {
     constructor() {}
 
     async getLogin(username,password) {
-        return fetch(GOBALS.URL + 'user/getLogin', { // server รับค่า ประมาลผล
+        return fetch(GOBALS.URL + 'user/getLogin', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -14,13 +14,13 @@ export default class UserModel {
                 user_username: username,
                 user_password: password
             })
-        }).then((response) => { // server ส่งค่ากลับ กรณี OK
+        }).then((response) => {
             if (response.status >= 200 && response.status < 300) {
                 return response.json();
             }else{
                 return false;
             }
-        }).catch((error) => {   // server ส่งค่ากลับ กรณี Error
+        }).catch((error) => {
             return false;
         });
     }
@@ -44,5 +44,21 @@ export default class UserModel {
         }).catch((error) => {
             return false;
         });
+    }
+
+    async updateImageNameByUserCode(data) {
+        return fetch(GOBALS.URL + 'user/updateImageNameByUserCode', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        }).then((response) => response.json())
+            .then((responseJson) => {
+                return responseJson;
+            }).catch((error) => {
+                console.error(error);
+            });
     }
 }
