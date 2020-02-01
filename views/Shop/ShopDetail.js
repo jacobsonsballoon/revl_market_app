@@ -43,10 +43,13 @@ export class ShopDetail extends React.Component {
                         alert: 'network-failed',
                     });
                 }else if (response.data.length == 0) {
-                    this.setState({
-                        loading: false,
-                        alert: 'not-found',
-                    });
+
+                    // this.setState({
+                    //     loading: false,
+                    //     alert: 'not-found',
+                    // });
+                    this.props.navigation.goBack();
+
                 }else{
                     this.setState({ 
                         loading: false,
@@ -67,6 +70,7 @@ export class ShopDetail extends React.Component {
                 display_data.push(<NetworkFailed/>);
             }else if (this.state.alert == 'not-found') {
                 display_data.push(<NotFound/>);
+               // this.props.navigation.navigate('ShopDetail', { shop_code: qr_code })
             }else{
                 display_data.push(
                     <View>
